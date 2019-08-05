@@ -1,0 +1,7 @@
+configMapGenerator:
+- name: example-redis-config
+  files:
+  - redis_config
+
+resources:
+- redis-pod.yaml
