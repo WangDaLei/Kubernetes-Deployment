@@ -1,24 +1,24 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  name: frontend
+  name: app
   labels:
-    app: guestbook
+    app: python
 spec:
   selector:
     matchLabels:
-      app: guestbook
-      tier: frontend
+      app: python
+      tier: app
   replicas: 3
   template:
     metadata:
       labels:
-        app: guestbook
-        tier: frontend
+        app: python
+        tier: app
     spec:
       containers:
-      - name: php-redis
-        image: registry.cn-hangzhou.aliyuncs.com/dal/gb-frontend:v6
+      - name: app-redis
+        image: registry.cn-hangzhou.aliyuncs.com/dal/python:v1.0
         resources:
           requests:
             cpu: 100m
