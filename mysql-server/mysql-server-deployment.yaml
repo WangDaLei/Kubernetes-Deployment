@@ -1,21 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: mysql-server
   labels:
-    app: mysql
+    app: python
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: python
+      tier: mysql
+  strategy:
+      type: Recreate
   template:
     metadata:
       labels:
-        app: mysql
+        app: python
+        tier: mysql
     spec:
       containers:
-        - image: mysql:5.7
+        - image: mysql
           name: mysql
           env:
             - name: MYSQL_ROOT_PASSWORD

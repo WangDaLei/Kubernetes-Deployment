@@ -3,14 +3,11 @@ kind: Service
 metadata:
   name: mysql-server
   labels:
-    app: mysql
-    role: master
-    tier: backend
+    app: python
 spec:
   ports:
-  - port: 3306
-    targetPort: 3306
+    - port: 3306
   selector:
-    app: mysql
-    role: master
-    tier: backend
+    app: python
+    tier: mysql
+  clusterIP: None

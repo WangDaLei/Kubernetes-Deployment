@@ -4,7 +4,6 @@ metadata:
   name: app
   labels:
     app: python
-    tier: app
 spec:
   # comment or delete the following line if you want to use a LoadBalancer
   type: NodePort
