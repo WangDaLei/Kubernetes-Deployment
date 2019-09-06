@@ -10,4 +10,4 @@ spec:
   selector:
     app: python
     tier: mysql
-  clusterIP: None
+    # clusterIP: None
