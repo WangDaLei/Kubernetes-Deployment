@@ -18,14 +18,16 @@ spec:
     spec:
       containers:
       - name: elk-container
-        image: registry.cn-hangzhou.aliyuncs.com/dal/python:v1.0
+        image: registry.cn-hangzhou.aliyuncs.com/deployment-dalei/elk:v1.0
         resources:
           requests:
             cpu: 100m
-            memory: 1000Mi
+            memory: 2000Mi
         env:
         - name: GET_HOSTS_FROM
           value: dns
         ports:
         - containerPort: 5601
+          name: kibana
         - containerPort: 5044
+          name: logstash

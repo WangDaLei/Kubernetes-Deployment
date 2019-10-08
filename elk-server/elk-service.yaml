@@ -7,8 +7,10 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 5601
-  - port: 5044
+  - name: kibana
+    port: 5601
+  - name: logstash 
+    port: 5044
   selector:
     app: elk
     tier: elk-dep
