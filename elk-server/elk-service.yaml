@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: elk-dep
+  labels:
+    app: elk
+spec:
+  type: NodePort
+  ports:
+  - port: 5601
+  - port: 5044
+  selector:
+    app: elk
+    tier: elk-dep

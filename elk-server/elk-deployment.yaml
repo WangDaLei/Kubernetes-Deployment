@@ -1,0 +1,31 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: elk-dep
+  labels:
+    app: elk
+spec:
+  selector:
+    matchLabels:
+      app: elk
+      tier: deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: elk
+        tier: deployment
+    spec:
+      containers:
+      - name: elk-container
+        image: registry.cn-hangzhou.aliyuncs.com/dal/python:v1.0
+        resources:
+          requests:
+            cpu: 100m
+            memory: 1000Mi
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        ports:
+        - containerPort: 5601
+        - containerPort: 5044
